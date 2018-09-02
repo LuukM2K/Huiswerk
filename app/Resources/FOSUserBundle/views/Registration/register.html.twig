@@ -1,0 +1,9 @@
+{% extends "@FOSUser/layout.html.twig" %}
+{% block fos_user_content %}
+    <body>
+    <div class="register-container" style="border: 1px solid #89C8CE; padding: 90px; margin-top: 50px">
+        <h1 style="margin-bottom: 45px; text-align: center;">Registeer</h1>
+        {% include "@FOSUser/Registration/register_content.html.twig" %}
+    </div>
+    </body>
+{% endblock fos_user_content %}

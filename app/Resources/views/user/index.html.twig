@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {% if is_granted('ROLE_ADMIN') %}
+    <h1>Users list</h1>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {%  else %}
+        <h1 style="text-align: center">Je bent niet ingelogd als een admin</h1>
+        <h1 style="text-align: center"> Maybe try harder  ¯\_(ツ)_/¯</h1>
+        <div class="tenor-gif-embed" data-postid="7178438" data-share-method="host" data-width="100%" data-aspect-ratio="1.5384615384615388"><a href="https://tenor.com/view/you-serious-spiderman-gif-7178438">Are You Serious Spiderman GIF</a> from <a href="https://tenor.com/search/areyouserious-gifs">Areyouserious GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    {% endif %}
+{% endblock %}
